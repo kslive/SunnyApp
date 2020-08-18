@@ -9,15 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let networkWeatherManager = NetworkWeatherManager()
 
     @IBOutlet weak var weatherIconImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
     }
 
     @IBAction func searchPressed(_ sender: UIButton) {
