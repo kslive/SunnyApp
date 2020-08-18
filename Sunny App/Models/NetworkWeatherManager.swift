@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
  protocol NetworkWeatherManagerDelegate {
     
@@ -20,6 +21,23 @@ import Foundation
     func fetchCurrentWeather(forCity city: String) {
         
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&apikey=\(apiKey)&units=metric"
+        guard let url = URL(string: urlString) else { return }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            
+            if let data = data {
+
+                if let currentWeather = self.parseJSON(withData: data) {
+                    self.delegate?.updateInterface(self, with: currentWeather)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func fetchCurrentWeather(forLatitude latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&apikey=\(apiKey)&units=metric"
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { data, response, error in
