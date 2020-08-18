@@ -12,5 +12,11 @@ extension ViewController: NetworkWeatherManagerDelegate {
     
     func updateInterface(_: NetworkWeatherManager, with currentWeather: CurrentWeather) {
         
+        DispatchQueue.main.async {
+            self.cityLabel.text = currentWeather.cityName
+            self.temperatureLabel.text = currentWeather.temperatureString
+            self.feelsLikeTemperatureLabel.text = currentWeather.feelsLikeTemperatureString
+            self.weatherIconImageView.image = UIImage(systemName: currentWeather.systemIconNameString)
+        }
     }
 }
