@@ -19,20 +19,26 @@ import Foundation
             
             if let data = data {
 
-                self.parseJSON(withData: data)
+                let currentWeather =  self.parseJSON(withData: data)
             }
         }
         task.resume()
     }
     
-    func parseJSON(withData data: Data) {
+    func parseJSON(withData data: Data) -> CurrentWeather? {
        
         let decoder = JSONDecoder()
         
         do {
             let currentWeatherData = try decoder.decode(CurrentWeatherData.self, from: data)
+            
+            guard let currentWeather = CurrentWeather(currentWeatherData: currentWeatherData) else { return nil }
+            
+            return currentWeather
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        
+        return nil
     }
  }
