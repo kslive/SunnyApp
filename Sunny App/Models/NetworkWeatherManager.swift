@@ -8,7 +8,14 @@
 
 import Foundation
 
+ protocol NetworkWeatherManagerDelegate {
+    
+    func updateInterface(_: NetworkWeatherManager, with currentWeather: CurrentWeather)
+ }
+ 
  struct NetworkWeatherManager {
+    
+    var delegate: NetworkWeatherManagerDelegate?
           
     func fetchCurrentWeather(forCity city: String) {
         
@@ -19,7 +26,9 @@ import Foundation
             
             if let data = data {
 
-                let currentWeather =  self.parseJSON(withData: data)
+                if let currentWeather = self.parseJSON(withData: data) {
+                    self.delegate?.updateInterface(self, with: currentWeather)
+                }
             }
         }
         task.resume()

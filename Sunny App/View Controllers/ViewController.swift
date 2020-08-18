@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let networkWeatherManager = NetworkWeatherManager()
+    var networkWeatherManager = NetworkWeatherManager()
 
     @IBOutlet weak var weatherIconImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networkWeatherManager.delegate = self
         networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
     }
 
