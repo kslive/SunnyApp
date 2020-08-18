@@ -13,6 +13,7 @@
 		6BECF8BC24EBA87A005B7DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BECF8BA24EBA87A005B7DD7 /* Main.storyboard */; };
 		6BECF8BE24EBA87D005B7DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BECF8BD24EBA87D005B7DD7 /* Assets.xcassets */; };
 		6BECF8C124EBA87D005B7DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BECF8BF24EBA87D005B7DD7 /* LaunchScreen.storyboard */; };
+		6BECF8D024EBAB5C005B7DD7 /* ViewController+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BECF8CF24EBAB5C005B7DD7 /* ViewController+AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6BECF8BD24EBA87D005B7DD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BECF8C024EBA87D005B7DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BECF8C224EBA87D005B7DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BECF8CF24EBAB5C005B7DD7 /* ViewController+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,56 @@
 		6BECF8B324EBA87A005B7DD7 /* Sunny App */ = {
 			isa = PBXGroup;
 			children = (
-				6BECF8B424EBA87A005B7DD7 /* AppDelegate.swift */,
-				6BECF8B624EBA87A005B7DD7 /* SceneDelegate.swift */,
-				6BECF8B824EBA87A005B7DD7 /* ViewController.swift */,
-				6BECF8BA24EBA87A005B7DD7 /* Main.storyboard */,
-				6BECF8BD24EBA87D005B7DD7 /* Assets.xcassets */,
-				6BECF8BF24EBA87D005B7DD7 /* LaunchScreen.storyboard */,
-				6BECF8C224EBA87D005B7DD7 /* Info.plist */,
+				6BECF8CA24EBA938005B7DD7 /* Extensions */,
+				6BECF8CB24EBA94C005B7DD7 /* Views */,
+				6BECF8C924EBA91B005B7DD7 /* Models */,
+				6BECF8C824EBA918005B7DD7 /* View Controllers */,
+				6BECF8CC24EBA96D005B7DD7 /* Supporting Files */,
 			);
 			path = "Sunny App";
+			sourceTree = "<group>";
+		};
+		6BECF8C824EBA918005B7DD7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6BECF8B824EBA87A005B7DD7 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		6BECF8C924EBA91B005B7DD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6BECF8CA24EBA938005B7DD7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6BECF8CF24EBAB5C005B7DD7 /* ViewController+AlertController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6BECF8CB24EBA94C005B7DD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6BECF8BA24EBA87A005B7DD7 /* Main.storyboard */,
+				6BECF8BF24EBA87D005B7DD7 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6BECF8CC24EBA96D005B7DD7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6BECF8B424EBA87A005B7DD7 /* AppDelegate.swift */,
+				6BECF8B624EBA87A005B7DD7 /* SceneDelegate.swift */,
+				6BECF8BD24EBA87D005B7DD7 /* Assets.xcassets */,
+				6BECF8C224EBA87D005B7DD7 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BECF8B924EBA87A005B7DD7 /* ViewController.swift in Sources */,
+				6BECF8D024EBAB5C005B7DD7 /* ViewController+AlertController.swift in Sources */,
 				6BECF8B524EBA87A005B7DD7 /* AppDelegate.swift in Sources */,
 				6BECF8B724EBA87A005B7DD7 /* SceneDelegate.swift in Sources */,
 			);
@@ -286,7 +330,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = "Sunny App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sunny App/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "kiseleff.Sunny-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,7 +349,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = "Sunny App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sunny App/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "kiseleff.Sunny-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
